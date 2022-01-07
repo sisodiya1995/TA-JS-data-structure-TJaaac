@@ -10,12 +10,12 @@ let person2 = person;
 
 person.firstName = 'Arya';
 
-console.log(person2.firstName); // output
-console.log(person.firstName); // output
-console.log(person.lastName); // output
-console.log(person == person2); // output
-console.log(person === person2); // output
-console.log(person.lastName === person2.lastName); // output
+console.log(person2.firstName); // Arya   copy by reference (address is same)
+console.log(person.firstName); //  Arya    copy by reference (address is same)
+console.log(person.lastName); //  Doe      copy by reference (address is same)
+console.log(person == person2); //  true    copy by reference (address is same)
+console.log(person === person2); //  true    copy by reference (address is same)
+console.log(person.lastName === person2.lastName); //  true    copy by reference (address is same)
 ```
 
 2. Write the output with reason:
@@ -32,22 +32,22 @@ let person = {
   },
 };
 
-let personTwo = { ...person };
+let personTwo = { ...person }; 
 
 person.firstName = 'Arya';
 person.city = 'Navada';
 
-console.log(personTwo.firstName); // output
-console.log(person.firstName); // output
-console.log(personTwo.lastName); // output
-console.log(person.firstName === personTwo.firstName); // output
-console.log(person == personTwo); // output
-console.log(person === personTwo); // output
-console.log(person.address === personTwo.address); // output
-console.log(person.address == personTwo.address); // output
-console.log(personTwo.address.city); // output
-console.log(person.address.city); // output
-console.log(person.address.city == personTwo.address.city); // output
+console.log(personTwo.firstName); // john
+console.log(person.firstName); // Arya
+console.log(personTwo.lastName); // Doe
+console.log(person.firstName === personTwo.firstName); //  false  address is not same
+console.log(person == personTwo); // false    address is not same
+console.log(person === personTwo); // false   address is not same
+console.log(person.address === personTwo.address); // true   shallow clonning (address is same)
+console.log(person.address == personTwo.address); //  true    shallow clonning (address is same)
+console.log(personTwo.address.city); // San jose     shallow clonning (address is same)
+console.log(person.address.city); //   San jose      shallow clonning (address is same)
+console.log(person.address.city == personTwo.address.city); // true    shallow clonning (address is same)
 ```
 
 3. Write the output with reason:
@@ -69,17 +69,17 @@ let personTwo = { ...person, address: { ...person.address } };
 person.firstName = 'Arya';
 person.city = 'Navada';
 
-console.log(personTwo.firstName); // output
-console.log(person.firstName); // output
-console.log(personTwo.lastName); // output
-console.log(person.firstName === personTwo.firstName); // output
-console.log(person == personTwo); // output
-console.log(person === personTwo); // output
-console.log(person.address === personTwo.address); // output
-console.log(person.address == personTwo.address); // output
-console.log(personTwo.address.city); // output
-console.log(person.address.city); // output
-console.log(person.address.city == personTwo.address.city); // output
+console.log(personTwo.firstName); // john
+console.log(person.firstName); // Arya
+console.log(personTwo.lastName); // Doe
+console.log(person.firstName === personTwo.firstName); // false   copy by reference (shallow clonning ,address is not same)
+console.log(person == personTwo); //  false    copy by reference (shallow clonning ,address is not same)
+console.log(person === personTwo); // false   copy by reference (shallow clonning ,address is not same)
+console.log(person.address === personTwo.address); // false   copy by reference (shallow clonning ,address is not same)
+console.log(person.address == personTwo.address); // false      copy by reference (shallow clonning ,address is not same)
+console.log(personTwo.address.city); // San jose
+console.log(person.address.city); //   San jose
+console.log(person.address.city == personTwo.address.city); // true  copy by reference (shallow clonning ,address is same)
 ```
 
 4. Clone the `blogs` variable into a new variable named `clonedBlogs`
@@ -105,6 +105,7 @@ let blogs = [
 
 // Your code goes here
 ```
+let clonedBlogs =[...blogs];
 
 5. Clone the `question` variable into a new variable named `questionClone`
 
@@ -129,7 +130,9 @@ var questions = [
 ];
 
 // Your code goes here
+
 ```
+   let questionClone =[...questions];
 
 6. Clone the `allBlogs` variable into a new variable named `allBlogsClone`
 
@@ -157,7 +160,7 @@ var allBlogs = {
 
 // Your code goes here
 ```
-
+let allBlogsClone ={...allBlogs};
 7. Clone the `person` variable into a new variable named `clonedPerson`
 
 ```js
@@ -190,12 +193,13 @@ let person = [
 
 // Your code goes here
 ```
-
+let clonedPerson =[...person]
 8. Write a function named `cloneObject` that accepts an object and returns the clone of the object
 
 ```js
-function cloneObject() {
+function cloneObject(obj) {
   // your code
+   return ({...obj});
 }
 
 // Run the test below to check your function
@@ -218,16 +222,16 @@ let person = {
   },
 };
 
-let clonedPerson = cloneObject(user);
+let clonedPerson = cloneObject(user); // {name: 'John', house: 'Stark', sisters: Array(2)}
 
 console.log(
   `The user object is ${
     user == cloned ? `not clone` : `cloned successfully 😁👑`
   }`
-);
+); // The user object is cloned successfully 😁👑
 console.log(
   `The person object is ${
     person == clonedPerson ? `not clone` : `cloned successfully 😁👑`
   }`
-);
+);  // The person object is cloned successfully 😁👑
 ```
