@@ -18,18 +18,18 @@ let newUser = user;
 
 2. Answer the following with reason:
 
-- `user == newUser;` // output and reason
-- `user === newUser;`
-- `user.name === newUser.name;`
-- `user.name == newUser.name;`
-- `user.sibling == newUser.sibling;`
-- `user.sibling === newUser.sibling;`
-- `user.sibling == allBrothers;`
-- `user.sibling === allBrothers;`
-- `brothersCopy === allBrothers;`
-- `brothersCopy == allBrothers;`
-- `brothersCopy == user.sibling;`
-- `brothersCopy === user.sibling;`
-- `brothersCopy[0] === user.sibling[0];`
-- `brothersCopy[1] === user.sibling[1];`
-- `user.sibling[1] === newUser.sibling[1];`
+- `user == newUser;` // true  ,value copy by refrence (address is same)
+- `user === newUser;` // true ,value copy by refrence (address is same)
+- `user.name === newUser.name;` // true , value copy by refrence (address is same)
+- `user.name == newUser.name;` //  true, value copy by refrence (address is same)
+- `user.sibling == newUser.sibling;` //  true , value copy by refrence (address is same)
+- `user.sibling === newUser.sibling;`// true , value copy by refrence (address is same)
+- `user.sibling == allBrothers;`// false , value copy by refrence (address is not same)
+- `user.sibling === allBrothers;`// false , value copy by refrence (address is not same)
+- `brothersCopy === allBrothers;`// false , value copy by refrence (address is not same)
+- `brothersCopy == allBrothers;`// false , value copy by refrence (address is not same)
+- `brothersCopy == user.sibling;`//  true , value copy by refrence (address is same)
+- `brothersCopy === user.sibling;` //  true , value copy by refrence (address is same)
+- `brothersCopy[0] === user.sibling[0];`// true , value copy by refrence (address is same)
+- `brothersCopy[1] === user.sibling[1];`//  true , value copy by refrence (address is same)
+- `user.sibling[1] === newUser.sibling[1];`//  true , value copy by refrence (address is same)
